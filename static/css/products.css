@@ -1,0 +1,34 @@
+/* Appliquer un style au conteneur des produits */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Appliquer un style aux éléments individuels des produits */
+  .product {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  /* Appliquer un style à l'image du produit */
+  .product img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  /* Appliquer un style au nom du produit */
+  .product h1 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  /* Appliquer un style au prix du produit */
+  .product h3 {
+    font-size: 16px;
+    color: #333;
+  }

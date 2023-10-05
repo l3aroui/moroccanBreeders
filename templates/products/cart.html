@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Cart</h1>
+  <h2>Items:</h2>
+  <form method="POST" action="{% url 'cart' %}">
+    {% csrf_token %}
+  <ul>
+    {% for item in cart.itempanier_set.all %}
+      <li>
+        {{ item.product.name }} - Quantity: {{ item.quantity }}
+        <form method="post" action="{% url 'update_item' item.id %}">
+          {% csrf_token %}
+          <input type="number" name="quantity" value="{{ item.quantity }}" min="0">
+          <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+        <form method="post" action="{% url 'delete_item' item.id %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </li>
+    {% empty %}
+      <li>Your cart is empty.</li>
+    {% endfor %}
+  </ul>
+
+  <p>Total: {{ cart.calculate_total }}</p> 
+  <button type="submit" class="btn btn-success" style="background-color: green;" name="confirm">Confirm</button>
+</form>
+{% endblock %}

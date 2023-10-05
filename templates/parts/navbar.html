@@ -1,0 +1,52 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index' %}"><span>My</span>Milk</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'index' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'products' %}">Shop</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+              </li>
+              {% comment %} <li>
+              <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li> {% endcomment %}
+              {% if request.user.is_authenticated and request.user.breeders %}
+              <li>
+                  <a class="nav-link" href="{% url 'breeders_dashboard' %}">My delivery</a>
+              </li>
+              {% endif %}
+          </ul>
+          {% if request.user.is_authenticated %}
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Hy, {{ request.user.username }}
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                      {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
+                      <a class="dropdown-item" href="{% url 'profile' %}">profil</a>
+                      <a class="dropdown-item" href="{% url 'cart' %}">My cart</a>
+                      <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                  </div>
+              </li>
+          </ul>
+          {% else %}
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item d-flex">
+                <a class="nav-link mr-3" href="{% url 'login' %}">Login</a>
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+        </ul>
+          {% endif %}
+      </div>
+  </div>
+</nav>

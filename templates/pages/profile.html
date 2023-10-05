@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    h1 {
+        color: #333;
+        font-size: 24px;
+    }
+    p {
+        color: #777;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+</style>
+<h1>Welcome, {{ user.username }}</h1>
+<p>Email: {{ user.email }}</p>
+<p>username: {{ user.username }}</p>
+<p>First Name: {{ user.first_name }}</p>
+<p>Last Name: {{ user.last_name }}</p>
+<p>phone number: {{user.profile.phone_number}}</p>
+{% endblock content %}

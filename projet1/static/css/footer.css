@@ -1,0 +1,35 @@
+footer {
+  background-color: #0a0c0a;
+  padding: 20px;
+  text-align: center;
+}
+ul.list-inline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.list-inline li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+ul.list-inline li:last-child {
+  margin-right: 0;
+}
+
+ul.list-inline li a {
+  text-decoration: none;
+  color: #f6f6f6;
+  padding: 5px;
+}
+
+ul.list-inline li a:hover {
+  color: #555;
+}
+
+p.copyright {
+  color: white;
+  font-size: 12px;
+  margin-top: 10px;
+}
